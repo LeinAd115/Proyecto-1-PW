@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservación | Hotel Quinta Dalam</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/formulario.css">
+</head>
+<body>
+
+<header>
+    <h1>Hotel Quinta Dalam</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Habitaciones</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Reservación de Habitación</h2>
+    <p>Complete el siguiente formulario para solicitar su estancia.</p>
+</section>
+
+<main>
+    <section class="form-wrapper">
+        <div class="form-card">
+            <h2>Datos de Reservación</h2>
+
+            <form action="pago.html" method="get">
+
+                <div class="form-group">
+                    <label>Nombre completo</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de entrada</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de salida</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de habitación</label>
+                    <select required>
+                        <option>Individual</option>
+                        <option>Doble</option>
+                        <option>Suite</option>
+                    </select>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit">Continuar a Pago</button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Hotel Paraíso</p>
+</footer>
+
+</body>
+</html>
