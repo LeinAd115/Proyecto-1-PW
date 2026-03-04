@@ -1,4 +1,4 @@
-/* RESET GENERAL */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* BODY */
 body {
     font-size: 16px;
     line-height: 1.6;
@@ -14,7 +13,6 @@ body {
     color: #333;
 }
 
-/* HEADER */
 header {
     background-color: #1e293b;
     padding: 20px 40px;
@@ -29,7 +27,6 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* NAV */
 nav a {
     color: #e5e7eb;
     text-decoration: none;
@@ -42,7 +39,6 @@ nav a:hover {
     color: #38bdf8;
 }
 
-/* CONTENEDOR GENERAL */
 .container {
     max-width: 1100px;
     margin: 50px auto;
@@ -184,7 +180,6 @@ h2 {
     background-color: #0369a1;
 }
 
-/* FOOTER */
 footer {
     background-color: #1e293b;
     color: #fff;
@@ -230,7 +225,6 @@ footer {
     margin-top: 40px;
 }
 /* ===== FONDO DECORATIVO ===== */
-
 body.inicio::before {
     margin: 0;
     padding: 0;

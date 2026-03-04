@@ -31,31 +31,32 @@
             <form action="pago.html" method="get">
 
                 <div class="form-group">
-                    <label>Nombre completo</label>
-                    <input type="text" required>
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Correo electrónico</label>
-                    <input type="email" required>
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Fecha de entrada</label>
-                    <input type="date" required>
+                    <label for="entrada">Fecha de entrada</label>
+                    <input type="date" id="entrada" name="entrada" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Fecha de salida</label>
-                    <input type="date" required>
+                    <label for="salida">Fecha de salida</label>
+                    <input type="date" id="salida" name="salida" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Tipo de habitación</label>
-                    <select required>
-                        <option>Individual</option>
-                        <option>Doble</option>
-                        <option>Suite</option>
+                    <label for="tipo">Tipo de habitación</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="individual">Individual</option>
+                        <option value="doble">Doble</option>
+                        <option value="suite">Suite</option>
                     </select>
                 </div>
 
@@ -69,7 +70,7 @@
 </main>
 
 <footer>
-    <p>© 2026 Hotel Paraíso</p>
+    <p>© 2026 Hotel Quinta Dalam</p>
 </footer>
 
 </body>
