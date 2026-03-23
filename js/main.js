@@ -9,7 +9,16 @@ $(document).ready(function(){
         }
     );
 
+$(".hero").hide().fadeIn(1500);
 $(".card").hide().fadeIn(1000);
+$(".card").hover(
+    function(){
+        $(this).css("transform", "scale(1.05)");
+    },
+    function(){
+        $(this).css("transform", "scale(1)");
+    }
+);
 
     //  MENSAJE EN HEADER
     $("header h1").click(function(){
