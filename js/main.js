@@ -218,3 +218,18 @@ $(document).ready(function(){
     });
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const habitacion = params.get("habitacion");
+
+    if (habitacion) {
+        const select = document.getElementById("tipo");
+
+        if (select) {
+            select.value = habitacion;
+        }
+    }
+
+});
