@@ -9,7 +9,6 @@ $(document).ready(function(){
         }
     );
 
-$(".hero").hide().fadeIn(1500);
 $(".card").hide().fadeIn(1000);
 $(".card").hover(
     function(){
@@ -200,5 +199,22 @@ $("#formPago").submit(function(e){
     if(!valido){
         e.preventDefault();
     }
+
+});
+
+$(document).ready(function(){
+
+
+    $(".hero").hide().fadeIn(1200);
+
+    $(".servicio").each(function(index){
+
+        let servicio = $(this);
+
+        setTimeout(function(){
+            servicio.addClass("visible");
+        }, index * 400); 
+
+    });
 
 });

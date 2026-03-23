@@ -271,6 +271,8 @@ body::before {
     margin: 80px auto;
 
     backdrop-filter: blur(5px); 
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .hero-left {
@@ -309,7 +311,7 @@ body::before {
 }
 
 .servicio {
-    background-color: rgba(0, 70, 140, 0.55);
+    background-color: rgba(0, 70, 140, 1);
     color: white;
 
     padding: 25px;
@@ -325,4 +327,46 @@ body::before {
 .servicio:hover {
     transform: translateY(-8px);
     background-color: rgba(0, 70, 140, 0.75);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #0284c7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #0369a1;
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.servicio {
+    background: rgba(59, 130, 246, 0.65);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+
+
+    opacity: 0;
+    transform: translateY(-150px);
+}
+
+.servicio.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.7s cubic-bezier(0.25, 1.5, 0.5, 1);
+}
+
+
+.servicio:hover {
+    transform: translateY(-5px) scale(1.02);
 }
