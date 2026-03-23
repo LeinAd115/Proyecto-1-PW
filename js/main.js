@@ -233,3 +233,118 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const btnAlta = document.getElementById("btnAlta");
+
+    if (btnAlta) {
+        btnAlta.addEventListener("click", function () {
+
+            const fileInput = document.getElementById("imagenFile");
+            const urlInput = document.getElementById("imagenURL").value;
+
+            if (fileInput.files.length > 0) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    guardarHabitacion(e.target.result);
+                };
+
+                reader.readAsDataURL(fileInput.files[0]);
+
+            } else {
+                guardarHabitacion(urlInput);
+            }
+
+            function guardarHabitacion(imagen) {
+
+                const habitacion = {
+                    id: document.getElementById("id").value,
+                    nombre: document.getElementById("nombre").value,
+                    descripcion: document.getElementById("descripcion").value,
+                    precio: document.getElementById("precio").value,
+                    tipo: document.getElementById("tipo").value,
+                    imagen: imagen
+                };
+
+                let habitaciones = JSON.parse(localStorage.getItem("habitaciones")) || [];
+
+                habitaciones.push(habitacion);
+
+                localStorage.setItem("habitaciones", JSON.stringify(habitaciones));
+
+                alert("Habitación guardada 😎");
+            }
+
+        });
+    }
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const contenedor = document.getElementById("catalogo");
+
+    if (contenedor) {
+
+        let habitaciones = JSON.parse(localStorage.getItem("habitaciones")) || [];
+
+        habitaciones.forEach(hab => {
+
+            const card = document.createElement("a");
+            card.classList.add("card");
+            card.href = `reservacion.html?habitacion=${hab.nombre}`;
+
+            card.innerHTML = `
+                <img src="${hab.imagen}" alt="${hab.nombre}">
+                <div class="card-content">
+                    <h3>${hab.nombre}</h3>
+                    <p>${hab.descripcion}</p>
+                    <p class="precio">$${hab.precio} MXN / noche</p>
+                </div>
+            `;
+
+            contenedor.appendChild(card);
+        });
+    }
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const btnEliminar = document.getElementById("btnEliminar");
+
+    if (btnEliminar) {
+        btnEliminar.addEventListener("click", function () {
+
+            const id = document.getElementById("id").value.trim();
+
+            if (!id) {
+                alert("Ingresa un ID para eliminar");
+                return;
+            }
+
+            let habitaciones = JSON.parse(localStorage.getItem("habitaciones")) || [];
+
+            const existe = habitaciones.some(hab => String(hab.id) === String(id));
+
+            if (!existe) {
+                alert("No existe una habitación con ese ID");
+                return;
+            }
+
+            if (!confirm("¿Seguro que quieres eliminar esta habitación?")) return;
+
+            habitaciones = habitaciones.filter(hab => String(hab.id) !== String(id));
+
+            localStorage.setItem("habitaciones", JSON.stringify(habitaciones));
+
+            alert("Habitación eliminada correctamente");
+
+            document.getElementById("id").value = "";
+
+        });
+    }
+
+});
