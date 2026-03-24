@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +5,22 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* 🔥 LAYOUT GENERAL (FOOTER ABAJO) */
+html, body {
+    height: 100%;
+}
+
 body {
     font-size: 16px;
     line-height: 1.6;
     background-color: #f4f6f8;
     color: #333;
+
+    display: flex;
+    flex-direction: column;
 }
 
+/* HEADER */
 header {
     background-color: #1e293b;
     padding: 20px 40px;
@@ -39,25 +47,30 @@ nav a:hover {
     color: #38bdf8;
 }
 
+/* CONTENEDOR */
 .container {
     max-width: 1100px;
     margin: 50px auto;
     padding: 20px;
+    flex: 1;
 }
 
-/* HERO (INDEX CONTORNOS HAV) */
+/* HERO */
 .hero {
     text-align: center;
     padding: 60px 20px;
-    background: white;
+    background: rgba(0, 70, 140, 0.75);
+    color: white;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 40px auto;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .hero h2 {
     font-size: 32px;
     margin-bottom: 15px;
-    color: #1e293b;
 }
 
 .hero p {
@@ -68,17 +81,18 @@ nav a:hover {
 /* BOTONES */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #0284c7;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #0284c7;
     color: white;
     text-decoration: none;
     border-radius: 6px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: #0369a1;
-    transform: translateY(-2px);
+    background: #0369a1;
+    transform: translateY(-3px);
 }
 
 /* TITULOS */
@@ -104,7 +118,7 @@ h2 {
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: 0.3s;
 }
 
 .card:hover {
@@ -123,7 +137,7 @@ h2 {
 }
 
 .card-content h3 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .card-content p {
@@ -134,7 +148,6 @@ h2 {
     font-size: 18px;
     color: #0284c7;
     font-weight: bold;
-    margin-top: 10px;
 }
 
 /* LOGIN */
@@ -175,28 +188,10 @@ h2 {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 .login-container button:hover {
     background-color: #0369a1;
-}
-
-footer {
-    background-color: #1e293b;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-}
-
-.card-content h3 {
-    margin-bottom: 8px;
-}
-
-.precio {
-    color: #0284c7;
-    font-weight: bold;
 }
 
 /* CONTACTO */
@@ -218,23 +213,16 @@ ul a {
 ul a:hover {
     text-decoration: underline;
 }
+
 /* FOOTER */
 footer {
     background-color: #1e293b;
     color: #fff;
     text-align: center;
     padding: 15px;
-    margin-top: 40px;
-}
-/* ===== FONDO DECORATIVO ===== */
-body.inicio::before {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    position: relative;
-    overflow-x: hidden;
 }
 
+/* FONDO */
 body::before {
     content: "";
     position: fixed;
@@ -242,133 +230,48 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-
-    background: url("../img/hotel1.jpg") no-repeat center center/cover;
-
-    opacity: 0.25; 
+    background: url("../img/hotel1.jpg") no-repeat center/cover;
+    opacity: 0.25;
     z-index: -1;
-
     animation: zoomFondo 20s infinite alternate ease-in-out;
 }
 
 @keyframes zoomFondo {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
-    }
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
 }
 
-/* ===== Botones de relleno para textos ===== */
-
-.hero {
-    background-color: rgba(0, 70, 140, 0.75); 
-    color: white;
-
-    padding: 40px;
-    border-radius: 12px;
-
-    max-width: 700px;
-    margin: 80px auto;
-
-    backdrop-filter: blur(5px); 
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.hero-left {
-    text-align: left;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-
-    background-color: #ffffff;
-    color: #00468c;
-
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 6px;
-
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #dceeff;
-    transform: translateY(-3px);
-}
-
-/* ===== Seccion servicios del index ===== */
-
+/* SERVICIOS */
 .servicios {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     margin: 60px auto;
     max-width: 1000px;
 }
 
 .servicio {
-    background-color: rgba(0, 70, 140, 1);
+    background-color: rgba(0, 70, 140, 0.6); /* 🔹 MÁS transparente */
     color: white;
 
     padding: 25px;
-    width: 250px;
-
     border-radius: 10px;
     text-align: center;
 
-    transition: 0.3s;
-}
-
-
-.servicio:hover {
-    transform: translateY(-8px);
-    background-color: rgba(0, 70, 140, 0.75);
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    background: #0284c7;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.btn:hover {
-    background: #0369a1;
-}
-
-.servicios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.servicio {
-    background: rgba(59, 130, 246, 0.65);
-    padding: 20px;
-    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-
 
     opacity: 0;
     transform: translateY(-150px);
+
+    transition: all 0.3s ease;
 }
 
 .servicio.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: all 0.7s cubic-bezier(0.25, 1.5, 0.5, 1);
 }
 
-
 .servicio:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-8px) scale(1.02);
+    background-color: rgba(0, 70, 140, 1); /* 🔥 MÁS sólido */
 }
